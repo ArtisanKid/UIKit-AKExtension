@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'UIKit-AKExtension_Example' do
+  pod 'UIKit-AKExtension', :path => '../'
+
+  target 'UIKit-AKExtension_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
