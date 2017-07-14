@@ -1,0 +1,19 @@
+PODS:
+  - Masonry (1.0.2)
+  - UIKit-AKExtension (0.1.0):
+    - Masonry
+
+DEPENDENCIES:
+  - UIKit-AKExtension (from `../`)
+
+EXTERNAL SOURCES:
+  UIKit-AKExtension:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  UIKit-AKExtension: f925556b3436c2e304cea82d848956c501cb1de6
+
+PODFILE CHECKSUM: 949e2e2e48f38738094dd459c7ccbf06f6f80738
+
+COCOAPODS: 1.2.1
