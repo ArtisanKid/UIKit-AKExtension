@@ -33,4 +33,19 @@
     return image;
 }
 
++ (UIImage *)ak_imageWithColor:(UIColor *)color size:(CGSize)size cornerRadius:(CGFloat)cornerRadius {
+    CGRect rect = CGRectMake(0., 0., size.width, size.height);
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    UIBezierPath *roundedRectanglePath = [UIBezierPath bezierPathWithRoundedRect:rect
+                                                               byRoundingCorners:UIRectCornerAllCorners
+                                                                     cornerRadii:CGSizeMake(cornerRadius, cornerRadius)];
+    [roundedRectanglePath addClip];
+    CGContextFillRect(context, rect);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 @end

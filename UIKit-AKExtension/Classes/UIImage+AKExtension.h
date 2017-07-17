@@ -22,4 +22,6 @@
 //不可拉伸纯色图片
 + (UIImage *)ak_imageWithColor:(UIColor *)color size:(CGSize)size;
 
++ (UIImage *)ak_imageWithColor:(UIColor *)color size:(CGSize)size cornerRadius:(CGFloat)cornerRadius;
+
 @end
