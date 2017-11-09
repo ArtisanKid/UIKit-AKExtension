@@ -1,7 +1,8 @@
 use_frameworks!
 
 target 'UIKit-AKExtension_Example' do
-  pod 'UIKit-AKExtension', :path => '../'
+  pod 'UIKit-AKExtension/Extensions', :path => '../'
+  pod 'UIKit-AKExtension/Inherits', :path => '../'
 
   target 'UIKit-AKExtension_Tests' do
     inherit! :search_paths

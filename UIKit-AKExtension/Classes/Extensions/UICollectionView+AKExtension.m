@@ -7,7 +7,7 @@
 //
 
 #import "UICollectionView+AKExtension.h"
-#import "UIKit-AKMacros.h"
+#import "UIKit-AKExtensionMacros.h"
 
 @implementation UICollectionView (AKExtension)
 

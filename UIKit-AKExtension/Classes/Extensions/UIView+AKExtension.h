@@ -11,6 +11,7 @@
 @interface UIView (AKExtension)
 
 #pragma mark - Quick Access
+
 @property (nonatomic, assign) CGFloat ak_left;
 @property (nonatomic, assign) CGFloat ak_top;
 @property (nonatomic, assign) CGFloat ak_right;
@@ -26,6 +27,13 @@
 
 @property (nonatomic, assign) CGPoint ak_origin;
 @property (nonatomic, assign) CGSize ak_size;
+
+#pragma mark - 圆角设置，非离屏渲染
+@property (nonatomic, assign) CGFloat ak_topLeftCornerRadius;
+@property (nonatomic, assign) CGFloat ak_topRightCornerRadius;
+@property (nonatomic, assign) CGFloat ak_bottomLeftCornerRadius;
+@property (nonatomic, assign) CGFloat ak_bottomRightCornerRadius;
+@property (nonatomic, assign) CGFloat ak_cornerRadius;
 
 #pragma mark - Quick Method
 - (UIView *)ak_findFirstResponder;

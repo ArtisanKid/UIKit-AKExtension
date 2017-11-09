@@ -7,7 +7,7 @@
 //
 
 #import "UITableView+AKExtension.h"
-#import "UIKit-AKMacros.h"
+#import "UIKit-AKExtensionMacros.h"
 #import <objc/runtime.h>
 
 #pragma mark- _AKTableView

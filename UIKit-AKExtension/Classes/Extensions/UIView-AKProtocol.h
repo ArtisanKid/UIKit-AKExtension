@@ -17,17 +17,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  使用object来绘制UIView
  
- @param object view对应类型对象
+ @param content view对应类型对象
  */
-- (void)AKDrawContent:(id)object;
+- (void)AKDrawContent:(id)content;
 
 /**
  计算UIView在指定对象下的大小
  
- @param object view对应类型对象
+ @param content view对应类型对象
  @return view在object下的大小
  */
-+ (CGSize)AKSizeWithContent:(id)object;
++ (CGSize)AKSizeWithContent:(id)content;
 
 /**
  UIView最小大小，与内容无关

@@ -12,7 +12,7 @@
 
 #pragma mark - Quick Access
 
-#pragma mark -
+
 @dynamic ak_left;
 @dynamic ak_top;
 @dynamic ak_right;
@@ -148,6 +148,37 @@
     CGRect frame = self.frame;
     frame.size = size;
     self.frame = frame;
+}
+
+#pragma mark - 圆角
+- (void)setAk_topLeftCornerRadius:(CGFloat)radius {
+    [self ak_makeCorner:UIRectCornerTopLeft radius:radius];
+}
+
+- (void)setAk_topRightCornerRadius:(CGFloat)radius {
+    [self ak_makeCorner:UIRectCornerTopRight radius:radius];
+}
+
+- (void)setAk_bottomLeftCornerRadius:(CGFloat)radius {
+    [self ak_makeCorner:UIRectCornerBottomLeft radius:radius];
+}
+
+- (void)setAk_bottomRightCornerRadius:(CGFloat)radius {
+    [self ak_makeCorner:UIRectCornerBottomRight radius:radius];
+}
+
+- (void)setAk_cornerRadius:(CGFloat)radius {
+    [self ak_makeCorner:UIRectCornerAllCorners radius:radius];
+}
+
+- (void)ak_makeCorner:(UIRectCorner)corner radius:(CGFloat)radius {
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
+                                                   byRoundingCorners:corner
+                                                         cornerRadii:CGSizeMake(radius, radius)];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = self.bounds;
+    maskLayer.path = maskPath.CGPath;
+    self.layer.mask = maskLayer;
 }
 
 #pragma mark - Quick Method

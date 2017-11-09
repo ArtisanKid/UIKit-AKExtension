@@ -38,6 +38,17 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
+  # s.dependency 'Masonry'
 
-  s.dependency 'Masonry'
+  s.subspec 'Extensions' do |extension|
+     extension.source_files = 'UIKit-AKExtension/Classes/Extensions/**/*'
+     extension.dependency 'Masonry'
+  end
+
+  s.subspec 'Inherits' do |inherit|
+    inherit.source_files = 'UIKit-AKExtension/Classes/Inherits/**/*'
+    inherit.dependency 'UIKit-AKExtension/Extensions'
+    inherit.dependency 'Masonry'
+    inherit.dependency 'SDWebImage'
+  end
 end

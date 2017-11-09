@@ -1,19 +1,27 @@
 PODS:
-  - Masonry (1.0.2)
-  - UIKit-AKExtension (0.1.0):
+  - Masonry (1.1.0)
+  - SDWebImage (4.1.2):
+    - SDWebImage/Core (= 4.1.2)
+  - SDWebImage/Core (4.1.2)
+  - UIKit-AKExtension/Extensions (0.1.0)
+  - UIKit-AKExtension/Inherits (0.1.0):
     - Masonry
+    - SDWebImage
+    - UIKit-AKExtension/Extensions
 
 DEPENDENCIES:
-  - UIKit-AKExtension (from `../`)
+  - UIKit-AKExtension/Extensions (from `../`)
+  - UIKit-AKExtension/Inherits (from `../`)
 
 EXTERNAL SOURCES:
   UIKit-AKExtension:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
-  UIKit-AKExtension: f925556b3436c2e304cea82d848956c501cb1de6
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  SDWebImage: cb6f9f266a9977741efcbc21e618e8be3734c774
+  UIKit-AKExtension: 9a7cb843f11c778ce71798b5b5c8aa072bad1e78
 
-PODFILE CHECKSUM: 949e2e2e48f38738094dd459c7ccbf06f6f80738
+PODFILE CHECKSUM: 1ed1207ea30bf401bc50ff4fd776e0788dadb00f
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.1.1

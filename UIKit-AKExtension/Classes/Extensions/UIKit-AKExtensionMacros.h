@@ -1,13 +1,13 @@
 //
-//  UIKit-AKMacros.h
+//  UIKit-AKExtensionMacros.h
 //  Pods
 //
 //  Created by 李翔宇 on 2017/7/13.
 //
 //
 
-#ifndef UIKit_AKMacros_h
-#define UIKit_AKMacros_h
+#ifndef UIKit_AKExtensionMacros_h
+#define UIKit_AKExtensionMacros_h
 
 #if DEBUG
     #define UIKit_AKExtensionLog(_Format, ...)\
@@ -20,4 +20,4 @@
     #define UIKit_AKExtensionLog(_Format, ...)
 #endif
 
-#endif /* UIKit_AKMacros_h */
+#endif /* UIKit_AKExtensionMacros_h */
