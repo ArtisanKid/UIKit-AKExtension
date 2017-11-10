@@ -10,34 +10,34 @@
 #import "UIImage+AKExtension.h"
 
 UIColor * AKColorRGBA(CGFloat red, CGFloat green, CGFloat blue, CGFloat alpha) {
-    return [UIColor ak_colorWithRed: red green: green blue: blue alpha: alpha];
+    return [UIColor ak_colorWithRed:red green:green blue:blue alpha:alpha];
 }
 
 UIColor * AKColorRGB(CGFloat red, CGFloat green, CGFloat blue) {
-    return [UIColor ak_colorWithRed: red green: green blue: blue];
+    return [UIColor ak_colorWithRed:red green: green blue: blue];
 }
 
-extern UIColor * AKColorVA(CGFloat value, CGFloat alpha) {
-    return [UIColor ak_colorWithRed: value green: value blue: value alpha: alpha];
+UIColor * AKColorVA(CGFloat value, CGFloat alpha) {
+    return [UIColor ak_colorWithRed:value green:value blue:value alpha:alpha];
 }
 
-extern UIColor * AKColorV(CGFloat value) {
+UIColor * AKColorV(CGFloat value) {
     return [UIColor ak_colorWithRed: value green: value blue: value];
 }
 
-extern UIColor * AKColorHexA(NSString *hex, CGFloat alpha) {
+UIColor * AKColorHexA(NSString *hex, CGFloat alpha) {
     return [UIColor ak_colorWithHex:hex alpha:alpha];
 }
 
-extern UIColor * AKColorHex(NSString *hex) {
+UIColor * AKColorHex(NSString *hex) {
     return [UIColor ak_colorWithHex:hex];
 }
 
-extern UIColor * AKColorBlackA(CGFloat alpha) {
+UIColor * AKColorBlackA(CGFloat alpha) {
     return [[UIColor blackColor] colorWithAlphaComponent:alpha];
 }
 
-extern UIColor * AKColorWhiteA(CGFloat alpha) {
+UIColor * AKColorWhiteA(CGFloat alpha) {
     return [[UIColor whiteColor] colorWithAlphaComponent:alpha];
 }
 
