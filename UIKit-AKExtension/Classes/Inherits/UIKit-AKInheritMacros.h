@@ -19,4 +19,7 @@
     #define UIKit_AKInheritLog(_Format, ...)
 #endif
 
+#define UIKit_AKInheritWeakify(_obj) __weak typeof(_obj) weak__obj = _obj;
+#define UIKit_AKInheritStrongify(_obj) __strong typeof(weak__obj) _obj = weak__obj;
+
 #endif /* UIKit_AKInheritMacros_h */

@@ -10,6 +10,10 @@
 
 @interface AKLabel : UILabel
 
+//内边距
 @property (nonatomic, assign) UIEdgeInsets ak_textEdgeInsets;
+
+@property (nonatomic, assign) CGRect ak_textRectForBounds;
+@property (nonatomic, assign) CGRect ak_drawTextInRect;
 
 @end

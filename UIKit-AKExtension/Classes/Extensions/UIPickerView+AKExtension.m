@@ -7,7 +7,7 @@
 //
 
 #import "UIPickerView+AKExtension.h"
-#import "UIKit-AKExtensionMacros.h"
+#import "UIKit-AKMacros.h"
 
 @implementation UIPickerView (AKExtension)
 
@@ -31,14 +31,14 @@
 
 - (void)ak_selectRow:(NSUInteger)row inComponent:(NSUInteger)component animated:(BOOL)animated {
     if(component >= self.numberOfComponents) {
-        UIKit_AKExtensionLog(@"数组越界，components：%@ component：%@", @(self.numberOfComponents), @(component));
+        UIKit_AKLog(@"数组越界，components：%@ component：%@", @(self.numberOfComponents), @(component));
         NSAssert(0, @"UIPickerView选择component越界，最好能够确定一下线程执行顺序");
         return;
     }
     
     NSUInteger rowCount = [self numberOfRowsInComponent:component];
     if(row >= rowCount) {
-        UIKit_AKExtensionLog(@"数组越界，rows：%@ row：%@", @(rowCount), @(row));
+        UIKit_AKLog(@"数组越界，rows：%@ row：%@", @(rowCount), @(row));
         NSAssert(0, @"UIPickerView选择row越界，最好能够确定一下线程执行顺序");
         return;
     }

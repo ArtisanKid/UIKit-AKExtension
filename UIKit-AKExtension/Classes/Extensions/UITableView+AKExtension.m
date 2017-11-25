@@ -7,7 +7,7 @@
 //
 
 #import "UITableView+AKExtension.h"
-#import "UIKit-AKExtensionMacros.h"
+#import "UIKit-AKMacros.h"
 #import <objc/runtime.h>
 
 #pragma mark- _AKTableView
@@ -74,14 +74,14 @@ static const void * const UITableViewHideExtraLineKey = &UITableViewHideExtraLin
 
 - (void)ak_scrollToRowAtIndexPath:(NSIndexPath *)indexPath atScrollPosition:(UITableViewScrollPosition)scrollPosition animated:(BOOL)animated {
     if(indexPath.section >= self.numberOfSections) {
-        UIKit_AKExtensionLog(@"数组越界，numberOfSections：%@ section：%@", @(self.numberOfSections), @(indexPath.section));
+        UIKit_AKLog(@"数组越界，numberOfSections：%@ section：%@", @(self.numberOfSections), @(indexPath.section));
         NSAssert(0, @"UITableView选择section越界，最好能够确定一下线程执行顺序");
         return;
     }
     
     NSUInteger rowCount = [self numberOfRowsInSection:indexPath.section];
     if(indexPath.row >= rowCount) {
-        UIKit_AKExtensionLog(@"数组越界，numberOfRowsInSection：%@ row：%@", @(rowCount), @(indexPath.row));
+        UIKit_AKLog(@"数组越界，numberOfRowsInSection：%@ row：%@", @(rowCount), @(indexPath.row));
         NSAssert(0, @"UITableView选择row越界，最好能够确定一下线程执行顺序");
         return;
     }
@@ -93,7 +93,7 @@ static const void * const UITableViewHideExtraLineKey = &UITableViewHideExtraLin
     __block BOOL canExecute = YES;
     [indexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull indexPath, NSUInteger idx, BOOL * _Nonnull stop) {
         if(indexPath.section >= self.numberOfSections) {
-            UIKit_AKExtensionLog(@"数组越界，sections：%@ section：%@", @(self.numberOfSections), @(indexPath.section));
+            UIKit_AKLog(@"数组越界，sections：%@ section：%@", @(self.numberOfSections), @(indexPath.section));
             NSAssert(0, @"UITableView选择section越界，最好能够确定一下线程执行顺序");
             canExecute = NO;
             *stop = YES;
@@ -101,7 +101,7 @@ static const void * const UITableViewHideExtraLineKey = &UITableViewHideExtraLin
         
         NSUInteger rowCount = [self numberOfRowsInSection:indexPath.section];
         if(indexPath.row >= rowCount) {
-            UIKit_AKExtensionLog(@"数组越界，rows：%@ row：%@", @(rowCount), @(indexPath.row));
+            UIKit_AKLog(@"数组越界，rows：%@ row：%@", @(rowCount), @(indexPath.row));
             NSAssert(0, @"UITableView选择row越界，最好能够确定一下线程执行顺序");
             canExecute = NO;
             *stop = YES;
@@ -117,14 +117,14 @@ static const void * const UITableViewHideExtraLineKey = &UITableViewHideExtraLin
 
 - (void)ak_selectRowAtIndexPath:(nullable NSIndexPath *)indexPath animated:(BOOL)animated scrollPosition:(UITableViewScrollPosition)scrollPosition {
     if(indexPath.section >= self.numberOfSections) {
-        UIKit_AKExtensionLog(@"数组越界，sections：%@ section：%@", @(self.numberOfSections), @(indexPath.section));
+        UIKit_AKLog(@"数组越界，sections：%@ section：%@", @(self.numberOfSections), @(indexPath.section));
         NSAssert(0, @"UITableView选择section越界，最好能够确定一下线程执行顺序");
         return;
     }
     
     NSUInteger rowCount = [self numberOfRowsInSection:indexPath.section];
     if(indexPath.row >= rowCount) {
-        UIKit_AKExtensionLog(@"数组越界，rows：%@ row：%@", @(rowCount), @(indexPath.row));
+        UIKit_AKLog(@"数组越界，rows：%@ row：%@", @(rowCount), @(indexPath.row));
         NSAssert(0, @"UITableView选择row越界，最好能够确定一下线程执行顺序");
         return;
     }
@@ -133,14 +133,14 @@ static const void * const UITableViewHideExtraLineKey = &UITableViewHideExtraLin
 }
 - (void)ak_deselectRowAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated {
     if(indexPath.section >= self.numberOfSections) {
-        UIKit_AKExtensionLog(@"数组越界，sections：%@ section：%@", @(self.numberOfSections), @(indexPath.section));
+        UIKit_AKLog(@"数组越界，sections：%@ section：%@", @(self.numberOfSections), @(indexPath.section));
         NSAssert(0, @"UITableView选择section越界，最好能够确定一下线程执行顺序");
         return;
     }
     
     NSUInteger rowCount = [self numberOfRowsInSection:indexPath.section];
     if(indexPath.row >= rowCount) {
-        UIKit_AKExtensionLog(@"数组越界，rows：%@ row：%@", @(rowCount), @(indexPath.row));
+        UIKit_AKLog(@"数组越界，rows：%@ row：%@", @(rowCount), @(indexPath.row));
         NSAssert(0, @"UITableView选择row越界，最好能够确定一下线程执行顺序");
         return;
     }

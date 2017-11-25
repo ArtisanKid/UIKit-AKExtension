@@ -11,11 +11,6 @@
 
 UIEdgeInsets UIViewController_AKContentMargin = {0., 0., 0., 0.};
 
-/**
- 配置内容与控制器的边距
- 
- @param margin 边距
- */
 void UIViewControllerSetContentMargin(UIEdgeInsets margin) {
     UIViewController_AKContentMargin = margin;
 }
@@ -24,11 +19,6 @@ void UIViewControllerSetContentMargin(UIEdgeInsets margin) {
 
 UIEdgeInsets UITableViewCell_AKContentMargin = {0., 0., 0., 0.};
 
-/**
- 配置内容与cell的边距
- 
- @param margin 边距
- */
 void UITableViewCellSetContentMargin(UIEdgeInsets margin) {
     UITableViewCell_AKContentMargin = margin;
 }
@@ -37,11 +27,6 @@ void UITableViewCellSetContentMargin(UIEdgeInsets margin) {
 
 UIOffset UIView_AKContentSpace = {0., 0.};
 
-/**
- 配置内容与内容的间距
- 
- @param space 间距
- */
 void UIViewSetContentSpace(UIOffset space) {
     UIView_AKContentSpace = space;
 }
