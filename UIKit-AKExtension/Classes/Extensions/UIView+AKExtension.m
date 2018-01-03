@@ -7,6 +7,7 @@
 //
 
 #import "UIView+AKExtension.h"
+#import <objc/runtime.h>
 
 @implementation UIView (AKExtension)
 
@@ -150,6 +151,10 @@
     self.frame = frame;
 }
 
+typedef NS_OPTIONS(NSUInteger, AKRectCorner) {
+    AKRectCornerNull = 0
+};
+
 #pragma mark - 圆角
 - (void)setAk_topLeftCornerRadius:(CGFloat)radius {
     [self ak_makeCorner:UIRectCornerTopLeft radius:radius];
@@ -167,11 +172,55 @@
     [self ak_makeCorner:UIRectCornerBottomRight radius:radius];
 }
 
+- (void)setAk_topCornerRadius:(CGFloat)radius {
+    [self ak_makeCorner:UIRectCornerTopLeft|UIRectCornerTopRight radius:radius];
+}
+
+- (void)setAk_bottomCornerRadius:(CGFloat)radius {
+    [self ak_makeCorner:UIRectCornerBottomLeft|UIRectCornerBottomRight radius:radius];
+}
+
+- (void)setAk_leftCornerRadius:(CGFloat)radius {
+    [self ak_makeCorner:UIRectCornerTopLeft|UIRectCornerBottomLeft radius:radius];
+}
+
+- (void)setAk_rightCornerRadius:(CGFloat)radius {
+    [self ak_makeCorner:UIRectCornerTopRight|UIRectCornerBottomRight radius:radius];
+}
+
+- (CGFloat)ak_topLeftCornerRadius { return self.ak_cornerRadius; }
+- (CGFloat)ak_topRightCornerRadius { return self.ak_cornerRadius; }
+- (CGFloat)ak_bottomLeftCornerRadius { return self.ak_cornerRadius; }
+- (CGFloat)ak_bottomRightCornerRadius { return self.ak_cornerRadius; }
+- (CGFloat)ak_topCornerRadius { return self.ak_cornerRadius; }
+- (CGFloat)ak_bottomCornerRadius { return self.ak_cornerRadius; }
+- (CGFloat)ak_leftCornerRadius { return self.ak_cornerRadius; }
+- (CGFloat)ak_rightCornerRadius { return self.ak_cornerRadius; }
+
+static const void * const UIView_AKRoundingCornersKey = &UIView_AKRoundingCornersKey;
+
+- (UIRectCorner)ak_roundingCorners {
+    return [objc_getAssociatedObject(self, UIView_AKRoundingCornersKey) integerValue];
+}
+
+- (void)setAk_roundingCorners:(UIRectCorner)corner {
+    objc_setAssociatedObject(self, UIView_AKRoundingCornersKey, @(corner), OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+static const void * const UIView_AKCornerRadiusKey = &UIView_AKCornerRadiusKey;
+
+- (CGFloat)ak_cornerRadius {
+    return [objc_getAssociatedObject(self, UIView_AKCornerRadiusKey) integerValue];
+}
+
 - (void)setAk_cornerRadius:(CGFloat)radius {
     [self ak_makeCorner:UIRectCornerAllCorners radius:radius];
+    objc_setAssociatedObject(self, UIView_AKCornerRadiusKey, @(radius), OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 - (void)ak_makeCorner:(UIRectCorner)corner radius:(CGFloat)radius {
+    self.ak_roundingCorners = corner;
+    
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds
                                                    byRoundingCorners:corner
                                                          cornerRadii:CGSizeMake(radius, radius)];
@@ -198,6 +247,18 @@
 
 - (void)ak_removeAllSubviews {
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+}
+
+- (UIViewController *)ak_controller {
+    UIView *view = self;
+    while (view.superview) {
+        view = view.superview;
+    }
+    UIResponder *nextResponder = view.nextResponder;
+    if(![nextResponder isKindOfClass:[UIViewController class]]) {
+        return nil;
+    }
+    return nextResponder;
 }
 
 - (void)setAk_forbidCompress:(BOOL)forbid {
